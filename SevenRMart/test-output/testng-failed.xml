@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testscript.SubCategoryTest">
+      <class name="testscript.LogInTest">
         <methods>
+          <include name="VerifyTheUserIsAbleToLogInUsingValidCredentials"/>
           <include name="initializeBrowser"/>
-          <include name="VerifyTheUserIsAbleToCreateASubCategory"/>
         </methods>
-      </class> <!-- testscript.SubCategoryTest -->
+      </class> <!-- testscript.LogInTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

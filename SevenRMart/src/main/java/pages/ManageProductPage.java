@@ -27,6 +27,9 @@ public class ManageProductPage {
 	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/Product/add']") private WebElement newicon;
 	@FindBy(xpath="//input[@id='main_img']") private WebElement image;
 	@FindBy(xpath="//input[@id='title']") private WebElement title;
+	@FindBy(xpath="//input[@id='w_price']") private WebElement price;
+	@FindBy(xpath="//div[@class='note-editable card-block']") private WebElement description;
+	
 	@FindBy(xpath="//button[@type='submit']") private WebElement savebutton;
 	//@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']") private WebElement alert;
 	
@@ -51,6 +54,12 @@ public class ManageProductPage {
 	}
 	public void enterValueOnTitleField(String titlepassing) {
 		title.sendKeys(titlepassing);
+	}
+	public void enterValueOnPriceField(String pricepassing) {
+		price.sendKeys(pricepassing);
+	}
+	public void enterValueOnDescription(String descriptionpassing) {
+		description.sendKeys(descriptionpassing);
 	}
 	public void uploadImage() throws AWTException
 	{

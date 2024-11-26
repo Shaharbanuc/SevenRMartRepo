@@ -10,7 +10,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
 import utilities.ExtendReportUtility;
-//ITestListener console listen
+//ITestListener will listen console
 public class Listeners implements ITestListener{
 	
 	ExtentTest test; 
@@ -33,7 +33,7 @@ public class Listeners implements ITestListener{
   
  	} 
  	public void onTestFailure(ITestResult result) { 
-  
+ 		//ITestListener is an interface so we must have to use interface name before super
  		ITestListener.super.onTestFailure(result); 
  		extentTest.get().log(Status.FAIL, "Test Failed"); 
  		extentTest.get().fail(result.getThrowable()); 

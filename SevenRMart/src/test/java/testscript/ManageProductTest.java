@@ -15,7 +15,9 @@ public class ManageProductTest extends BaseProject{
 	{
 		String usernamevalue=ExcelUtilities.readStringData(1,0,"manage_product");
 		String passwordvalue=ExcelUtilities.readStringData(1,1,"manage_product");
-		String titlepassing=ExcelUtilities.readStringData(1,2,"manage_product");		System.out.println(titlepassing);
+		String title=ExcelUtilities.readStringData(1,2,"manage_product");
+		String price=ExcelUtilities.readIntigerData(1,3,"manage_product");
+		String description=ExcelUtilities.readStringData(1,4,"manage_product");		System.out.println(title);
 		ManageProductPage manageproductpage=new ManageProductPage(driver);
 		manageproductpage.enterUserNameOnUserField(usernamevalue);
 		manageproductpage.enterPasswordOnPasswordField(passwordvalue);
@@ -23,7 +25,9 @@ public class ManageProductTest extends BaseProject{
 		manageproductpage.clickOnManageProductButton();
 		
 		manageproductpage.clickOnNewIcon();
-		manageproductpage.enterValueOnTitleField(titlepassing);
+		manageproductpage.enterValueOnTitleField(title);
+		manageproductpage.enterValueOnPriceField(price);
+		manageproductpage.enterValueOnDescription(description);
 		manageproductpage.uploadImage();
 		manageproductpage.clickOnSave();
 		//boolean isalert=manageproductpage.alertDisplayed();

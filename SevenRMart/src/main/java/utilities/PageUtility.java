@@ -7,7 +7,6 @@ import org.openqa.selenium.support.ui.Select;
 
 public class PageUtility {
 	
-	//WebDriver driver;
 	public void selectByValue(WebElement element,String value) {
 		Select select =new Select(element);
 		select.selectByValue(value);
@@ -20,10 +19,6 @@ public class PageUtility {
 		Select select =new Select(element);
 		select.selectByVisibleText(visibleText);
 	}
-	//you can add as much as known methods here for e asiness, and just call using object in whereever needed by creating this PageUtility class's object.
-   /*public void javaScriptExecutor(WebDriver drvier,WebElement element)
-   {
-	   JavascriptExecutor js = (JavascriptExecutor) driver;
-	   
-   }*/
+	//you can add as much as known methods here for easiness, and just call using object wherever needed by creating this PageUtility class's object.
+ 
 }
