@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testscript.LogInTest">
+      <class name="testscript.ManageFooterTextTest">
         <methods>
-          <include name="VerifyTheUserIsAbleToLogInUsingValidCredentials"/>
+          <include name="CheckTheUpdateButtonIsDisplayedOnFooterTextPage"/>
           <include name="initializeBrowser"/>
         </methods>
-      </class> <!-- testscript.LogInTest -->
+      </class> <!-- testscript.ManageFooterTextTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import constants.Constants;
+import utilities.ActionClassUtilities;
 import utilities.AlertUtility;
 import utilities.FileUploadUtilities;
 import utilities.JavaScriptExecutorUtilities;
@@ -29,6 +30,10 @@ public class ManageProductPage {
 	@FindBy(xpath="//input[@id='title']") private WebElement title;
 	@FindBy(xpath="//input[@id='w_price']") private WebElement price;
 	@FindBy(xpath="//div[@class='note-editable card-block']") private WebElement description;
+	@FindBy(xpath="//button[@type='button' and @class='note-btn btn btn-light btn-sm note-btn-underline']") private WebElement underlinedescr;
+	@FindBy(xpath="//i[@class=\"note-icon-video\"]") private WebElement videoicon;
+	@FindBy(xpath="//input[contains(@class,'note-video-url form-control')]") private WebElement insertvideo;
+	@FindBy(xpath="//input[@value='Insert Video']") private WebElement insertvideobutton;
 	
 	@FindBy(xpath="//button[@type='submit']") private WebElement savebutton;
 	//@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']") private WebElement alert;
@@ -61,6 +66,30 @@ public class ManageProductPage {
 	public void enterValueOnDescription(String descriptionpassing) {
 		description.sendKeys(descriptionpassing);
 	}
+	public void selectDescriptionField()
+	{
+		ActionClassUtilities actionclassutilities=new ActionClassUtilities(driver);
+		actionclassutilities.moveToElement(description);
+	}
+	public void underLineDescriptionField()
+	{
+		ActionClassUtilities actionclassutilities=new ActionClassUtilities(driver);
+		actionclassutilities.moveToElement(underlinedescr);
+		underlinedescr.click();
+	}
+	public void clickVideoIconDescriptionField()
+	{
+		videoicon.click();
+	}
+	public void addVideoLinkDescriptionField()
+	{
+		insertvideo.sendKeys("https://www.shutterstock.com/video/clip-3557755893-retro-projector-style-5-seconds-countdown-ten");;
+	}
+	public void clickInsertVideoButton()
+	{
+		insertvideobutton.click();
+	}
+	
 	public void uploadImage() throws AWTException
 	{
 		FileUploadUtilities fileuploadutilities=new FileUploadUtilities();

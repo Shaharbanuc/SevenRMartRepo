@@ -14,7 +14,8 @@ public class LogInTest extends BaseProject{
 	{
 		//String usernamevalue="admin";
 		//String passwordvalue="admin";
-		//instead of loginpage we should give LoginPage
+		//included in cross browser 
+		//loginpage is the name of sheet in excel
 		String usernamevalue=ExcelUtilities.readStringData(1,0,"loginpage");
 		String passwordvalue=ExcelUtilities.readStringData(1,1,"loginpage");
 		LogInPage loginpage=new LogInPage(driver);
@@ -25,11 +26,12 @@ public class LogInTest extends BaseProject{
 		Assert.assertTrue(homepagedisplayed,"Home page not loaded when user entered valid credentials");
 		
 	}
-	@Test
+	@Test(description="Check login for invalid password")
 	public void VerifyTheUserIsNotAbleToLogInUsingInValidPassword() throws IOException
 	{
 		//String usernamevalue="admin";
 		//String passwordvalue="admin12";
+		//included in cross browser 
 		String usernamevalue=ExcelUtilities.readStringData(2,0,"loginpage");
 		String passwordvalue=ExcelUtilities.readStringData(2,1,"loginpage");
 		LogInPage loginpage=new LogInPage(driver);
@@ -45,7 +47,7 @@ public class LogInTest extends BaseProject{
 		boolean errordisplayed=loginpage.isErrorMessageDisplayed();
 		Assert.assertTrue(errordisplayed,"Error message is not displayed and user is able to login with invalid password");
 	}
-    @Test(retryAnalyzer=retry.Retry.class)
+    @Test(retryAnalyzer=retry.Retry.class,groups= {"regression"},description="Check login for invalid user name")
 	public void VerifyTheUserIsNotAbleToLogInUsingInValidUserName() throws IOException
 	{
 		//String usernamevalue="admin90";

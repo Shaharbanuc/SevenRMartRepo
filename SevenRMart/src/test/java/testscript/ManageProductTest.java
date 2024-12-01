@@ -34,7 +34,27 @@ public class ManageProductTest extends BaseProject{
 		//Assert.assertTrue(isalert, "New product created with empty mandatory fields");
 		String alertexpected="Please enter weight price";
 		String alertmessage=manageproductpage.simpleAlertDisplayed();
-		Assert.assertEquals(alertmessage, alertexpected, "new product created with empty mandatory fields");
-		
+		Assert.assertEquals(alertmessage, alertexpected, "new product created with empty mandatory fields");	
+	}
+	@Test
+	public void ToVerifyTheProductDescriptionfiledCanAcceptVideo() throws IOException
+	{
+		String usernamevalue=ExcelUtilities.readStringData(1,0,"manage_product");
+		String passwordvalue=ExcelUtilities.readStringData(1,1,"manage_product");
+		String description=ExcelUtilities.readStringData(1,4,"manage_product");
+		ManageProductPage manageproductpage=new ManageProductPage(driver);
+		manageproductpage.enterUserNameOnUserField(usernamevalue);
+		manageproductpage.enterPasswordOnPasswordField(passwordvalue);
+		manageproductpage.clickOnSignInButton();
+		manageproductpage.clickOnManageProductButton();
+		manageproductpage.clickOnNewIcon();
+		manageproductpage.enterValueOnDescription(description);
+		manageproductpage.selectDescriptionField();
+		manageproductpage.underLineDescriptionField();
+		manageproductpage.clickVideoIconDescriptionField();
+		manageproductpage.addVideoLinkDescriptionField();
+		//the site has a problem, cant insert the link
+		manageproductpage.clickInsertVideoButton();
+		manageproductpage.clickOnSave();
 	}
 }

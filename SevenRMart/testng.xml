@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
+<suite name="Suite new">
+	<parameter name="browser" value="chrome"></parameter>
 	<listeners>
 		<listener class-name="generatereport.Listeners"></listener>
 		
 	</listeners>
-  <test thread-count="5" name="Test">
+  <test thread-count="2" name="Test new">
     <classes>
-		<class name="testscript.LogInTest">
-      <methods>
-      <include name="VerifyTheUserIsAbleToLogInUsingValidCredentials"> </include> <!--to specify TC -->
-      <include name="VerifyTheUserIsNotAbleToLogInUsingInValidPassword"> </include>  <!--to specify TC -->
-      <!-- just like incclude we have exclude which will execute all TCs except those in excluded-->
-      <exclude name="VerifyTheUserIsNotAbleToLogInUsingInValidUserName"> </exclude>  <!--to specify TC -->
+    
+      <class name="testscript.ManageFooterTextTest">
+		<methods>
+      <exclude name="CheckTheUpdateButtonIsDisplayedOnFooterTextPage">   </exclude> 
+	
        </methods>
-      </class>
-      <!--class name="testscript.AdminUsersTest"/-->
-      <!--class name="testscript.ManageProductTest"/-->
-      <!--class name="testscript.SubCategoryTest"/-->
-      <!--class name="testscript.LogIn"/-->
+	  </class>
+      
+      
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
