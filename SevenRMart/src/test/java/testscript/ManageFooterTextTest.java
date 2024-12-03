@@ -28,7 +28,7 @@ public class ManageFooterTextTest extends BaseProject{
 		//System.out.println("end statement");
 	}
 	@Test
-	public void ToCheckTheUserIsAbleToUpdateAFooterText() throws IOException
+	public void ToCheckTheUserIsAbleToUpdateAFooterTextWithInvalidEmailAndPhone() throws IOException
 	{
 		String usernamevalue=ExcelUtilities.readStringData(1,0,"loginpage");
 		String passwordvalue=ExcelUtilities.readStringData(1,1,"loginpage");

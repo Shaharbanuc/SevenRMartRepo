@@ -10,7 +10,8 @@
       <class name="testscript.ManageFooterTextTest">
         <methods>
           <include name="initializeBrowser"/>
-          <include name="ToCheckTheUserIsAbleToUpdateAFooterText"/>
+          <include name="browserQuit"/>
+          <include name="ToCheckTheUserIsAbleToUpdateAFooterTextWithInvalidEmailAndPhone"/>
         </methods>
       </class> <!-- testscript.ManageFooterTextTest -->
     </classes>
