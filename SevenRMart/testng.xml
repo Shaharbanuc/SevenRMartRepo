@@ -9,9 +9,9 @@
   <test thread-count="2" name="Test new">
     <classes>
     
-      <class name="testscript.ManageFooterTextTest">
+      <class name="testscript.LogInTest">
 		<methods>
-      <exclude name="CheckTheUpdateButtonIsDisplayedOnFooterTextPage">   </exclude> 
+      <exclude name="VerifyTheUserIsAbleToLogInUsingValidCredentials">   </exclude> 
 	
        </methods>
 	  </class>
