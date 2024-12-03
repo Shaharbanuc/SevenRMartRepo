@@ -7,12 +7,13 @@
   </listeners>
   <test thread-count="5" name="Test old(failed)">
     <classes>
-      <class name="testscript.ManageFooterTextTest">
+      <class name="testscript.LogInTest">
         <methods>
+          <include name="VerifyTheUserIsAbleToLogInUsingValidCredentials" invocation-numbers="0"/>
           <include name="initializeBrowser"/>
-          <include name="ToCheckTheUserIsAbleToUpdateAFooterText"/>
+          <include name="browserQuit"/>
         </methods>
-      </class> <!-- testscript.ManageFooterTextTest -->
+      </class> <!-- testscript.LogInTest -->
     </classes>
   </test> <!-- Test old(failed) -->
 </suite> <!-- Failed suite [Suite old] -->

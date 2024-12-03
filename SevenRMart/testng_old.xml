@@ -8,9 +8,9 @@
 	</listeners>
   <test thread-count="1" name="Test old">
     <classes>
-		<class name="testscript.ManageFooterTextTest">
+		<class name="testscript.LogInTest">
       <methods>
-      <include name="ToCheckTheUserIsAbleToUpdateAFooterText"> </include>  <!--to specify TC -->
+      <include name="VerifyTheUserIsAbleToLogInUsingValidCredentials"> </include>  <!--to specify TC -->
       
        </methods>
       </class>

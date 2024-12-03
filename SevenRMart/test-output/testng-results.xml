@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-11-30T18:34:09 GST" name="Suite new" finished-at="2024-11-30T18:34:32 GST" duration-ms="22854">
+  <suite started-at="2024-12-02T12:40:29 GST" name="Suite old" finished-at="2024-12-02T12:40:44 GST" duration-ms="14818">
     <groups>
     </groups>
-    <test started-at="2024-11-30T18:34:09 GST" name="Test new" finished-at="2024-11-30T18:34:32 GST" duration-ms="22854">
-      <class name="testscript.ManageFooterTextTest">
-        <test-method is-config="true" signature="initializeBrowser(java.lang.String)[pri:0, instance:testscript.ManageFooterTextTest@7ae42ce3]" started-at="2024-11-30T18:34:09 GST" name="initializeBrowser" finished-at="2024-11-30T18:34:20 GST" duration-ms="10612" status="PASS">
+    <test started-at="2024-12-02T12:40:29 GST" name="Test old" finished-at="2024-12-02T12:40:44 GST" duration-ms="14818">
+      <class name="testscript.LogInTest">
+        <test-method is-config="true" signature="initializeBrowser(java.lang.String)[pri:0, instance:testscript.LogInTest@e70f13a]" started-at="2024-12-02T12:40:30 GST" name="initializeBrowser" finished-at="2024-12-02T12:40:41 GST" duration-ms="11186" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,32 +18,29 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeBrowser -->
-        <test-method signature="CheckTheUpdateButtonIsDisplayedOnFooterTextPage()[pri:0, instance:testscript.ManageFooterTextTest@7ae42ce3]" started-at="2024-11-30T18:34:20 GST" name="CheckTheUpdateButtonIsDisplayedOnFooterTextPage" finished-at="2024-11-30T18:34:24 GST" duration-ms="4571" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CheckTheUpdateButtonIsDisplayedOnFooterTextPage -->
-        <test-method is-config="true" signature="initializeBrowser(java.lang.String)[pri:0, instance:testscript.ManageFooterTextTest@7ae42ce3]" started-at="2024-11-30T18:34:24 GST" name="initializeBrowser" finished-at="2024-11-30T18:34:28 GST" duration-ms="3202" status="PASS">
+        <test-method signature="VerifyTheUserIsAbleToLogInUsingValidCredentials(java.lang.String,java.lang.String)[pri:0, instance:testscript.LogInTest@e70f13a]" started-at="2024-12-02T12:40:41 GST" name="VerifyTheUserIsAbleToLogInUsingValidCredentials" data-provider="LoginProvider" finished-at="2024-12-02T12:40:43 GST" duration-ms="1861" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA[chrome]]>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[admin]]>
               </value>
             </param>
           </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initializeBrowser -->
-        <test-method signature="ToCheckTheUserIsAbleToUpdateAFooterText()[pri:0, instance:testscript.ManageFooterTextTest@7ae42ce3]" started-at="2024-11-30T18:34:28 GST" name="ToCheckTheUserIsAbleToUpdateAFooterText" finished-at="2024-11-30T18:34:32 GST" duration-ms="4372" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[The email field and phone filed accept invalid data expected [false] but found [true]]]>
+              <![CDATA[MAKING TC FAIL TO CAPTURE SCREENSHOT expected [false] but found [true]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: The email field and phone filed accept invalid data expected [false] but found [true]
+              <![CDATA[java.lang.AssertionError: MAKING TC FAIL TO CAPTURE SCREENSHOT expected [false] but found [true]
 at org.testng.Assert.fail(Assert.java:111)
 at org.testng.Assert.failNotEquals(Assert.java:1578)
 at org.testng.Assert.assertFalse(Assert.java:79)
-at testscript.ManageFooterTextTest.ToCheckTheUserIsAbleToUpdateAFooterText(ManageFooterTextTest.java:50)
+at testscript.LogInTest.VerifyTheUserIsAbleToLogInUsingValidCredentials(LogInTest.java:24)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -77,8 +74,19 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ToCheckTheUserIsAbleToUpdateAFooterText -->
-      </class> <!-- testscript.ManageFooterTextTest -->
-    </test> <!-- Test new -->
-  </suite> <!-- Suite new -->
+        </test-method> <!-- VerifyTheUserIsAbleToLogInUsingValidCredentials -->
+        <test-method is-config="true" signature="browserQuit(org.testng.ITestResult)[pri:0, instance:testscript.LogInTest@e70f13a]" started-at="2024-12-02T12:40:43 GST" name="browserQuit" finished-at="2024-12-02T12:40:44 GST" duration-ms="836" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyTheUserIsAbleToLogInUsingValidCredentials status=FAILURE method=LogInTest.VerifyTheUserIsAbleToLogInUsingValidCredentials(java.lang.String,java.lang.String)[pri:0, instance:testscript.LogInTest@e70f13a] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browserQuit -->
+      </class> <!-- testscript.LogInTest -->
+    </test> <!-- Test old -->
+  </suite> <!-- Suite old -->
 </testng-results>
