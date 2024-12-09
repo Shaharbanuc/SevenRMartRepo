@@ -2,131 +2,159 @@ package pages;
 
 import java.awt.AWTException;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import constants.Constants;
-import utilities.ActionClassUtilities;
-import utilities.AlertUtility;
 import utilities.FileUploadUtilities;
-import utilities.JavaScriptExecutorUtilities;
+
+import utilities.PageUtility;
+import utilities.WaitUtilities;
 
 public class ManageProductPage {
-	
+
 	WebDriver driver;
+
 	public ManageProductPage(WebDriver driver) {
-		this.driver=driver;
-		PageFactory.initElements(driver,this);
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
 	}
-	@FindBy(xpath="//input[@type='text']")private WebElement usernameField;
-	@FindBy(xpath="//input[@type='password']")private WebElement pwd;
-	@FindBy(xpath="//button[@type='submit']")private WebElement signin;
-	@FindBy(css="a.small-box-footer[href='https://groceryapp.uniqassosiates.com/admin/list-product']") private WebElement manageproduct;
-	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/Product/add']") private WebElement newicon;
-	@FindBy(xpath="//input[@id='main_img']") private WebElement image;
-	@FindBy(xpath="//input[@id='title']") private WebElement title;
-	@FindBy(xpath="//input[@id='w_price']") private WebElement price;
-	@FindBy(xpath="//div[@class='note-editable card-block']") private WebElement description;
-	@FindBy(xpath="//button[@type='button' and @class='note-btn btn btn-light btn-sm note-btn-underline']") private WebElement underlinedescr;
-	@FindBy(xpath="//i[@class=\"note-icon-video\"]") private WebElement videoicon;
-	@FindBy(xpath="//input[contains(@class,'note-video-url form-control')]") private WebElement insertvideo;
-	@FindBy(xpath="//input[@value='Insert Video']") private WebElement insertvideobutton;
-	
-	@FindBy(xpath="//button[@type='submit']") private WebElement savebutton;
-	//@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']") private WebElement alert;
-	
-	
-	public void enterUserNameOnUserField(String usernamevaluepassing)
-	{
-		usernameField.sendKeys(usernamevaluepassing);
-	}
-	public void enterPasswordOnPasswordField(String pwdpassing)
-	{
-		pwd.sendKeys(pwdpassing);
-	}
-	public void clickOnSignInButton()
-	{
-		signin.click();
-	}
-	public void clickOnManageProductButton() {
-		manageproduct.click();
-	}
-	public void clickOnNewIcon() {
+
+	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/Product/add']")
+	private WebElement newicon;
+	@FindBy(xpath = "//input[@id='main_img']")
+	private WebElement image;
+	@FindBy(xpath = "//input[@id='title']")
+	private WebElement title;
+	@FindBy(xpath = "//input[@value='Others']")
+	private WebElement producttype;
+	@FindBy(xpath = "//select[@id='grp_id']")
+	private WebElement group;
+	@FindBy(xpath = "//input[@id='purpose1']")
+	private WebElement pricetype;
+
+	@FindBy(xpath = "//input[@id='w_price']")
+	private WebElement price;
+	@FindBy(xpath = "//div[@class='note-editable card-block']")
+	private WebElement description;
+	@FindBy(xpath = "//button[@type='button' and @class='note-btn btn btn-light btn-sm note-btn-underline']")
+	private WebElement underlinedescr;
+	@FindBy(xpath = "//i[@class=\"note-icon-video\"]")
+	private WebElement videoicon;
+	@FindBy(xpath = "//input[@class='note-video-url form-control note-form-control note-input']")
+	private WebElement insertvideo;
+	@FindBy(xpath = "//input[@value='Insert Video']")
+	private WebElement insertvideobutton;
+
+	@FindBy(xpath = "//input[@value='no' and @name='stock']")
+	private WebElement stcokradiobutton;
+	@FindBy(xpath = "//button[@type='submit']")
+	private WebElement savebutton;
+	// @FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']") private
+	// WebElement alert;
+
+	public ManageProductPage clickOnNewIcon() {
 		newicon.click();
+		return this;
 	}
-	public void enterValueOnTitleField(String titlepassing) {
+
+	public ManageProductPage enterValueOnTitleField(String titlepassing) {
 		title.sendKeys(titlepassing);
+		return this;
 	}
-	public void enterValueOnPriceField(String pricepassing) {
+
+	public ManageProductPage clickProdcutType() {
+		producttype.click();// if not working use javascript
+		return this;
+	}
+
+	public ManageProductPage selectGroup() {
+		PageUtility pageutility = new PageUtility();
+		pageutility.selectByIndex(group, 1);
+		return this;
+	}
+
+	public ManageProductPage clickPriceType() {
+		// not using this method ,Clicking the radio button caused change in DOM ,id of
+		// price element is changing.
+		PageUtility pageutility = new PageUtility();
+		pageutility.clickOnWebElement(driver, pricetype);
+		return this;
+	}
+
+	public ManageProductPage enterValueOnPriceField(String pricepassing) {
+		WaitUtilities waitutilities = new WaitUtilities();
+		waitutilities.waitForElementToBeClickable(driver, price);
 		price.sendKeys(pricepassing);
+		return this;
 	}
-	public void enterValueOnDescription(String descriptionpassing) {
+
+	public ManageProductPage enterValueOnDescription(String descriptionpassing) {
 		description.sendKeys(descriptionpassing);
+		return this;
 	}
-	public void selectDescriptionField()
-	{
-		ActionClassUtilities actionclassutilities=new ActionClassUtilities(driver);
-		actionclassutilities.moveToElement(description);
+
+	public ManageProductPage selectDescriptionField() {
+		PageUtility pageutility = new PageUtility();
+		pageutility.moveToElement(driver, description);
+		return this;
 	}
-	public void underLineDescriptionField()
-	{
-		ActionClassUtilities actionclassutilities=new ActionClassUtilities(driver);
-		actionclassutilities.moveToElement(underlinedescr);
-		underlinedescr.click();
+
+	public ManageProductPage underLineDescriptionField() {
+		PageUtility pageutility = new PageUtility();
+		pageutility.clickOnWebElement(driver, underlinedescr);
+
+		// underlinedescr.click();
+		return this;
 	}
-	public void clickVideoIconDescriptionField()
-	{
-		videoicon.click();
+
+	public ManageProductPage clickVideoIconDescriptionField() {
+		// normal click not working
+		PageUtility pageutility = new PageUtility();
+		pageutility.clickOnWebElement(driver, videoicon);
+		return this;
 	}
-	public void addVideoLinkDescriptionField()
-	{
-		insertvideo.sendKeys("https://www.shutterstock.com/video/clip-3557755893-retro-projector-style-5-seconds-countdown-ten");;
+
+	public ManageProductPage addVideoLinkDescriptionField() {
+		//read
+		insertvideo.sendKeys(
+				"https://www.shutterstock.com/video/clip-3557755893-retro-projector-style-5-seconds-countdown-ten");
+		return this;
 	}
-	public void clickInsertVideoButton()
-	{
+
+	public ManageProductPage clickInsertVideoButton() {
 		insertvideobutton.click();
+		return this;
 	}
-	
-	public void uploadImage() throws AWTException
-	{
-		FileUploadUtilities fileuploadutilities=new FileUploadUtilities();
-		//path is given in Constants class
+
+	public ManageProductPage uploadImage() throws AWTException {
+		FileUploadUtilities fileuploadutilities = new FileUploadUtilities();
+		// path is given in Constants class
 		fileuploadutilities.fileuploadUsingSendkeys(image, Constants.STRAWBERRY_IMAGE);
-		//fileuploadutilities.FileuploadUsingRobotclass(image, Constants.STRAWBERRY_IMAGE);
+		// fileuploadutilities.FileuploadUsingRobotclass(image,
+		// Constants.STRAWBERRY_IMAGE);
+		return this;
 	}
-	//below method is replaced by JavaScriptExecutorUtilities
-	/*public void clickOnSave()
-	{
-		//savebutton.click(); direct click not working
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();",savebutton);
-	}*/
-	/*public boolean alertDisplayed()
-	{
-		return alert.isDisplayed();
-	}*/
-	public void clickOnSave()
-	{
-		JavaScriptExecutorUtilities javascriptexeobj=new JavaScriptExecutorUtilities(driver);
-		javascriptexeobj.clickOnWebElement(savebutton);
+
+	public ManageProductPage clickStockRadio() {
+		// stcokradiobutton.click() not wroking so used javascript
+		PageUtility pageutility = new PageUtility();
+		pageutility.clickOnWebElement(driver, stcokradiobutton);
+		return this;
 	}
-	public String simpleAlertDisplayed()
-	{
-		AlertUtility alertutility=new AlertUtility(driver);
-		String text=alertutility.getAlertText();
-		alertutility.acceptAlert();
+
+	public ManageProductPage clickOnSave() {
+		PageUtility pageutility = new PageUtility();
+		pageutility.clickOnWebElement(driver, savebutton);
+		return this;
+	}
+
+	public String simpleAlertDisplayed() {
+		//is
+		PageUtility pageutility = new PageUtility();
+		String text = pageutility.getAlertText(driver);
+		pageutility.acceptAlert(driver);
 		return text;
 	}
-	//below method is replaced using AlertUtility
-	/*public String simpleAlertDisplayed()
-	{
-		String text=driver.switchTo().alert().getText();
-		System.out.println(text);
-		//alertbox elements are not an html element so we need to switch from html to alert
-		driver.switchTo().alert().accept();
-		return text;
-	}*/
 }

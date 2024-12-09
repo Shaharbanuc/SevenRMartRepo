@@ -6,55 +6,49 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import pages.HomePage;
+import pages.LogInPage;
 import pages.ManageProductPage;
 import utilities.ExcelUtilities;
 
-public class ManageProductTest extends BaseProject{
+public class ManageProductTest extends BaseProject {
+	ManageProductPage manageproductpage;
+	HomePage homepage;
+
 	@Test
-	public void ToCheckUserIsAbleToCreateNewProductWithMandatoryFiledsEmpty() throws IOException, AWTException
-	{
-		String usernamevalue=ExcelUtilities.readStringData(1,0,"manage_product");
-		String passwordvalue=ExcelUtilities.readStringData(1,1,"manage_product");
-		String title=ExcelUtilities.readStringData(1,2,"manage_product");
-		String price=ExcelUtilities.readIntigerData(1,3,"manage_product");
-		String description=ExcelUtilities.readStringData(1,4,"manage_product");		System.out.println(title);
-		ManageProductPage manageproductpage=new ManageProductPage(driver);
-		manageproductpage.enterUserNameOnUserField(usernamevalue);
-		manageproductpage.enterPasswordOnPasswordField(passwordvalue);
-		manageproductpage.clickOnSignInButton();
-		manageproductpage.clickOnManageProductButton();
-		
-		manageproductpage.clickOnNewIcon();
-		manageproductpage.enterValueOnTitleField(title);
-		manageproductpage.enterValueOnPriceField(price);
-		manageproductpage.enterValueOnDescription(description);
-		manageproductpage.uploadImage();
-		manageproductpage.clickOnSave();
-		//boolean isalert=manageproductpage.alertDisplayed();
-		//Assert.assertTrue(isalert, "New product created with empty mandatory fields");
-		String alertexpected="Please enter weight price";
-		String alertmessage=manageproductpage.simpleAlertDisplayed();
-		Assert.assertEquals(alertmessage, alertexpected, "new product created with empty mandatory fields");	
+	public void ToCheckUserIsAbleToCreateNewProductWithMandatoryFiledsEmpty() throws IOException, AWTException {
+		String usernamevalue = ExcelUtilities.readStringData(1, 0, "manage_product");
+		String passwordvalue = ExcelUtilities.readStringData(1, 1, "manage_product");
+		String title = ExcelUtilities.readStringData(1, 2, "manage_product");
+		String price = ExcelUtilities.readIntigerData(1, 3, "manage_product");
+		String description = ExcelUtilities.readStringData(1, 4, "manage_product");
+		System.out.println(title);
+		LogInPage loginpage = new LogInPage(driver);
+		loginpage.enterUserNameOnUserField(usernamevalue).enterPasswordOnPasswordField(passwordvalue);
+		homepage = loginpage.clickOnSignInButton();
+		manageproductpage = homepage.clickOnManageProductButton();
+		manageproductpage.clickOnNewIcon().enterValueOnTitleField(title).clickProdcutType().selectGroup()
+				.enterValueOnPriceField(price).enterValueOnDescription(description).clickStockRadio().uploadImage()
+				.clickOnSave();
+		// boolean isalert=manageproductpage.alertDisplayed();
+		// Assert.assertTrue(isalert, "New product created with empty mandatory
+		// fields");
+		String alertexpected = "Please enter stock count";
+		String alertmessage = manageproductpage.simpleAlertDisplayed();
+		Assert.assertEquals(alertmessage, alertexpected, "new product created with mandatory field weight blank");
 	}
+
 	@Test
-	public void ToVerifyTheProductDescriptionfiledCanAcceptVideo() throws IOException
-	{
-		String usernamevalue=ExcelUtilities.readStringData(1,0,"manage_product");
-		String passwordvalue=ExcelUtilities.readStringData(1,1,"manage_product");
-		String description=ExcelUtilities.readStringData(1,4,"manage_product");
-		ManageProductPage manageproductpage=new ManageProductPage(driver);
-		manageproductpage.enterUserNameOnUserField(usernamevalue);
-		manageproductpage.enterPasswordOnPasswordField(passwordvalue);
-		manageproductpage.clickOnSignInButton();
-		manageproductpage.clickOnManageProductButton();
-		manageproductpage.clickOnNewIcon();
-		manageproductpage.enterValueOnDescription(description);
-		manageproductpage.selectDescriptionField();
-		manageproductpage.underLineDescriptionField();
-		manageproductpage.clickVideoIconDescriptionField();
-		manageproductpage.addVideoLinkDescriptionField();
-		//the site has a problem, cant insert the link
-		manageproductpage.clickInsertVideoButton();
-		manageproductpage.clickOnSave();
+	public void ToVerifyTheProductDescriptionfiledCanAcceptVideo() throws IOException {
+		String usernamevalue = ExcelUtilities.readStringData(1, 0, "manage_product");
+		String passwordvalue = ExcelUtilities.readStringData(1, 1, "manage_product");
+		String description = ExcelUtilities.readStringData(1, 4, "manage_product");
+		LogInPage loginpage = new LogInPage(driver);
+		loginpage.enterUserNameOnUserField(usernamevalue).enterPasswordOnPasswordField(passwordvalue);
+		homepage = loginpage.clickOnSignInButton();
+		manageproductpage = homepage.clickOnManageProductButton();
+		manageproductpage.clickOnNewIcon().enterValueOnDescription(description).selectDescriptionField()
+				.underLineDescriptionField().clickVideoIconDescriptionField().addVideoLinkDescriptionField()
+				.clickInsertVideoButton().clickOnSave();
 	}
 }

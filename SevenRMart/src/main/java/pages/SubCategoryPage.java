@@ -10,84 +10,95 @@ import utilities.FileUploadUtilities;
 import utilities.PageUtility;
 
 public class SubCategoryPage {
-	
+
 	WebDriver driver;
-	public SubCategoryPage(WebDriver driver) 
-	{
-		this.driver=driver;
-		PageFactory.initElements(driver,this);
+
+	public SubCategoryPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
 	}
-	@FindBy(xpath="//input[@type='text']")private WebElement usernameField;
-	@FindBy(xpath="//input[@type='password']")private WebElement pwd;
-	@FindBy(xpath="//button[@type='submit']")private WebElement signin;
-	@FindBy(css="a.small-box-footer[href='https://groceryapp.uniqassosiates.com/admin/list-sub-category']")private WebElement subcategorylink;
+
+	//@FindBy(xpath = "//input[@type='text']") private WebElement usernameField;
+	//@FindBy(xpath = "//input[@type='password']") private WebElement pwd;
+	//@FindBy(xpath = "//button[@type='submit']") private WebElement signin;
+	// @FindBy(css="a.small-box-footer[href='https://groceryapp.uniqassosiates.com/admin/list-sub-category']")private WebElement subcategorylink;
+
+	@FindBy(xpath = "//a[@class='btn btn-rounded btn-danger']")
+	private WebElement newbutton;
+	@FindBy(xpath = "//select[@id='cat_id']")
+	private WebElement category;
+	@FindBy(xpath = "//input[@id='subcategory']")
+	private WebElement subcategory;
+	@FindBy(xpath = "//input[@id='main_img']")
+	private WebElement imagebutton;
+	@FindBy(xpath = "//button[@type='submit']")
+	private WebElement savebutton;
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+	private WebElement savealert;
+	@FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
+	private WebElement cancelalert;
+	@FindBy(xpath = "//a[contains(@href,'Subcategory/status?id=1821&st=inactive&page_ad=1')]")
+	private WebElement statusbutton;
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+	private WebElement statusactivealert;
 	
-	@FindBy(xpath="//a[@class='btn btn-rounded btn-danger']")private WebElement newbutton;
-	@FindBy(xpath="//select[@id='cat_id']")private WebElement category;
-	@FindBy(xpath="//input[@id='subcategory']")private WebElement subcategory;
-	@FindBy(xpath="//input[@id='main_img']")private WebElement imagebutton;
-	@FindBy(xpath="//button[@type='submit']")private WebElement savebutton;
-	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")private WebElement savealert;
-	@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']")private WebElement cancelalert;
-	@FindBy(xpath="//a[contains(@href,'Subcategory/status?id=1446&st=inactive&page_ad=1')]")private WebElement statusbutton;
-	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")private WebElement statusactivealert;
-	
-	//@FindBy(xpath="//a[@class='btn btn-default btn-fix']")private WebElement cancelbutton;
-	
-	public void enterUserNameOnUserField(String usernamevaluepassing)
-	{
+	/*public void enterUserNameOnUserField(String usernamevaluepassing) {
 		usernameField.sendKeys(usernamevaluepassing);
 	}
-	public void enterPasswordOnPasswordField(String pwdpassing)
-	{
+	public void enterPasswordOnPasswordField(String pwdpassing) {
 		pwd.sendKeys(pwdpassing);
 	}
-	public void clickOnSignInButton()
-	{
+	public void clickOnSignInButton() {
 		signin.click();
 	}
-	public void clickOnSubCategoryButton() {
+	public void clickOnSubCategoryMoreinfo() {
 		subcategorylink.click();
-	}
-	public void clickOnNewButton() {
+	}*/
+
+	public SubCategoryPage clickOnNewButton() {
 		newbutton.click();
+		return this;
 	}
-	public void selectValueToCategory() {
-		PageUtility pageutil=new PageUtility();
-		pageutil.selectByIndex(category,3);
+
+	public SubCategoryPage selectValueToCategory() {
+		PageUtility pageutil = new PageUtility();
+		pageutil.selectByIndex(category, 1);
+		return this;
 	}
-	public void sendValueToSubCategory(String subCategoryNamePassing)
-	{
+
+	public SubCategoryPage sendValueToSubCategory(String subCategoryNamePassing) {
 		subcategory.sendKeys(subCategoryNamePassing);
+		return this;
 	}
-	public void uploadImage()
-	{
-		//import this utility and also constants
-		FileUploadUtilities fileuploadutilities=new FileUploadUtilities();
-		fileuploadutilities.fileuploadUsingSendkeys(imagebutton,Constants.AIRFRYER_IMAGE);
+
+	public SubCategoryPage uploadImage() {
+		// import this utility and also constants
+		FileUploadUtilities fileuploadutilities = new FileUploadUtilities();
+		fileuploadutilities.fileuploadUsingSendkeys(imagebutton, Constants.AIRFRYER_IMAGE);
+		return this;
 	}
-	public void clickSave()
-	{
+
+	public SubCategoryPage clickSave() {
 		savebutton.click();
+		return this;
 	}
-	public boolean isSaveAlertDisplayed()
-	{
+
+	public boolean isSaveAlertDisplayed() {
 		return savealert.isDisplayed();
+
 	}
-	public boolean isCancelAlertDisplayed()
-	{
+
+	public boolean isCancelAlertDisplayed() {
 		return cancelalert.isDisplayed();
+
 	}
-	public void clickOnStatusButton()
-	{
+
+	public SubCategoryPage clickOnStatusButton() {
 		statusbutton.click();
+		return this;
 	}
-	public boolean isActiveStatusAlertDisplayed()
-	{
+
+	public boolean isActiveStatusAlertDisplayed() {
 		return statusactivealert.isDisplayed();
 	}
-	/*public void clickCancel()
-	{
-		cancelbutton.click();
-	}*/
 }

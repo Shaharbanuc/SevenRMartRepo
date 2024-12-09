@@ -5,69 +5,64 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import utilities.AlertUtility;
+import utilities.PageUtility;
 
-public class ManageNewsPage{
-	
+public class ManageNewsPage {
+
 	WebDriver driver;
-	public ManageNewsPage(WebDriver driver) 
-	{
-		this.driver=driver;
-		PageFactory.initElements(driver,this);
+
+	public ManageNewsPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
 	}
-	@FindBy(xpath="//input[@type='text']")private WebElement usernameField;
-	@FindBy(xpath="//input[@type='password']")private WebElement pwd;
-	@FindBy(xpath="//button[@type='submit']")private WebElement signin;
-	@FindBy(css="a.small-box-footer[href='https://groceryapp.uniqassosiates.com/admin/list-news']")private WebElement managenewslink;
-	@FindBy(xpath="//a[contains(@href,'admin/news/add')]")private WebElement newnews;
-	@FindBy(xpath="//textarea[@id='news']")private WebElement newstextfield;
-	@FindBy(xpath="//button[@type='submit']")private WebElement savebutton;
-	//deletion
-	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")private WebElement alert;
-	@FindBy(xpath="//a[contains(@href,'admin/news/delete?del=2067&page_ad=1')]")private WebElement deleteicon;
-	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")private WebElement alertafterdelete;
-	
-	
-	public void enterUserNameOnUserField(String usernamevaluepassing)
-	{
-		usernameField.sendKeys(usernamevaluepassing);
-	}
-	public void enterPasswordOnPasswordField(String pwdpassing)
-	{
-		pwd.sendKeys(pwdpassing);
-	}
-	public void clickOnSignInButton()
-	{
-		signin.click();
-	}
-	public void clickOnManageNewsButton() {
-		managenewslink.click();
-	}
-	public void clickOnNewButton() {
+
+	@FindBy(xpath = "//a[contains(@href,'admin/news/add')]")
+	private WebElement newnews;
+	@FindBy(xpath = "//textarea[@id='news']")
+	private WebElement newstextfield;
+	@FindBy(xpath = "//button[@type='submit']")
+	private WebElement savebutton;
+	// deletion
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+	private WebElement alert;
+	@FindBy(xpath = "//a[contains(@href,'news/delete?del=2192&page_ad=1')]")
+	private WebElement deleteicon;
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+	private WebElement alertafterdelete;
+
+	public ManageNewsPage clickOnNewButton() {
 		newnews.click();
+		return this;
 	}
-	public void eneterValueInNewsField(String newspassing) {
+
+	public ManageNewsPage eneterValueInNewsField(String newspassing) {
 		newstextfield.sendKeys(newspassing);
+		return this;
 	}
-	public void clickOnSave() {
+
+	public ManageNewsPage clickOnSave() {
 		savebutton.click();
+		return this;
 	}
-	public boolean isAlertdisplayed()
-	{
+
+	public boolean isAlertdisplayed() {
 		return alert.isDisplayed();
 	}
-	//deletion
-	public void clickOnDelete() {
+
+	// deletion
+	public ManageNewsPage clickOnDelete() {
 		deleteicon.click();
+		return this;
 	}
-	public void deleteConfirmationAlert()
-	{
-		AlertUtility alertutility=new AlertUtility(driver);
-		alertutility.acceptAlert();
+
+	public ManageNewsPage deleteConfirmationAlert() {
+		PageUtility pageutility = new PageUtility();
+		pageutility.acceptAlert(driver);
+		return this;
 	}
-	public boolean isAlertDisplayedAfterDelete()
-	{
+
+	public boolean isAlertDisplayedAfterDelete() {
 		return alertafterdelete.isDisplayed();
 	}
-	
+
 }

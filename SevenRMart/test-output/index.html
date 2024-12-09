@@ -103,7 +103,7 @@
                     <div class="method-list-content failed suite-Suite_new">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite_new" title="testscript.ManageFooterTextTest" class="method navigator-link" hash-for-method="ToCheckTheUserIsAbleToUpdateAFooterTextWithInvalidEmailAndPhone">ToCheckTheUserIsAbleToUpdateAFooterTextWithInvalidEmailAndPhone</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite_new" title="testscript.LogInTest" class="method navigator-link" hash-for-method="VerifyTheUserIsAbleToLogInUsingValidCredentials(admin, admin)">VerifyTheUserIsAbleToLogInUsingValidCredentials(admin, admin)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Suite_new -->
@@ -121,16 +121,17 @@
           <div class="suite-Suite_new-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">testscript.ManageFooterTextTest</span>
+              <span class="class-name">testscript.LogInTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="ToCheckTheUserIsAbleToUpdateAFooterTextWithInvalidEmailAndPhone">
-                  </a> <!-- ToCheckTheUserIsAbleToUpdateAFooterTextWithInvalidEmailAndPhone -->
-                  <span class="method-name">ToCheckTheUserIsAbleToUpdateAFooterTextWithInvalidEmailAndPhone</span>
-                  <div class="stack-trace">java.lang.AssertionError: The email field and phone filed accept invalid data expected [false] but found [true]
-	at testscript.ManageFooterTextTest.ToCheckTheUserIsAbleToUpdateAFooterTextWithInvalidEmailAndPhone(ManageFooterTextTest.java:50)
+                  <a name="VerifyTheUserIsAbleToLogInUsingValidCredentials(admin, admin)">
+                  </a> <!-- VerifyTheUserIsAbleToLogInUsingValidCredentials(admin, admin) -->
+                  <span class="method-name">VerifyTheUserIsAbleToLogInUsingValidCredentials</span>
+                  <span class="parameters">(admin,admin)</span>
+                  <div class="stack-trace">java.lang.AssertionError: MAKING TC FAIL TO CAPTURE SCREENSHOT expected [false] but found [true]
+	at testscript.LogInTest.VerifyTheUserIsAbleToLogInUsingValidCredentials(LogInTest.java:20)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 ... Removed 30 stack frames
 </div> <!-- stack-trace -->
@@ -154,11 +155,11 @@
   &lt;/listeners&gt;
   &lt;test thread-count=&quot;2&quot; name=&quot;Test new&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;testscript.ManageFooterTextTest&quot;&gt;
+      &lt;class name=&quot;testscript.LogInTest&quot;&gt;
         &lt;methods&gt;
-          &lt;exclude name=&quot;CheckTheUpdateButtonIsDisplayedOnFooterTextPage&quot;/&gt;
+          &lt;include name=&quot;VerifyTheUserIsAbleToLogInUsingValidCredentials&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- testscript.ManageFooterTextTest --&gt;
+      &lt;/class&gt; &lt;!-- testscript.LogInTest --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test new --&gt;
 &lt;/suite&gt; &lt;!-- Suite new --&gt;
@@ -200,14 +201,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'ToCheckTheUserIsAbleToUpdateAFooterTextWithInvalidEmailAndPhone')
-data.setCell(0, 2, 'testscript.ManageFooterTextTest')
-data.setCell(0, 3, 6379);
+data.setCell(0, 1, 'VerifyTheUserIsAbleToLogInUsingValidCredentials')
+data.setCell(0, 2, 'testscript.LogInTest')
+data.setCell(0, 3, 1768);
 window.suiteTableData['Suite_new']= { tableData: data, tableDiv: 'times-div-Suite_new'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 6 seconds</span>
+              <span class="suite-total-time">Total running time: 1 seconds</span>
               <div id="times-div-Suite_new">
               </div> <!-- times-div-Suite_new -->
             </div> <!-- times-div -->
@@ -222,13 +223,17 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Suite_new" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">1 ignored method</span>
+            <span class="header-content">3 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">testscript.ManageFooterTextTest</span>
+              <span class="ignored-class-name">testscript.LogInTest</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">CheckTheUpdateButtonIsDisplayedOnFooterTextPage</span>
+                <span class="ignored-method-name">VerifyTheUserIsNotAbleToLogInUsingInValidPassword</span>
+                <br/>
+                <span class="ignored-method-name">VerifyTheUserIsNotAbleToLogInUsingInValidUserName</span>
+                <br/>
+                <span class="ignored-method-name">VerifyTheUserIsNotAbleToLogInUsingInValidCredentials</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -240,7 +245,7 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">testscript.ManageFooterTextTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">testscript.LogInTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">initializeBrowser(chrome)</span>
                 <span class="method-start">0 ms</span>
@@ -248,12 +253,12 @@ return data;
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">ToCheckTheUserIsAbleToUpdateAFooterTextWithInvalidEmailAndPhone</span>
-                <span class="method-start">11640 ms</span>
+                <span class="method-name">VerifyTheUserIsAbleToLogInUsingValidCredentials(admin, admin)</span>
+                <span class="method-start">15897 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">browserQuit([TestResult name=ToCheckTheUserIsAbleToUpdateAFooterTextWithInvalidEmailAndPhone status=FAILURE meth...)</span>
-                <span class="method-start">18041 ms</span>
+                <span class="method-name">browserQuit([TestResult name=VerifyTheUserIsAbleToLogInUsingValidCredentials status=FAILURE method=LogInTest.Ver...)</span>
+                <span class="method-start">17691 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
