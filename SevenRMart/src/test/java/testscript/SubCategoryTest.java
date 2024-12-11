@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import constants.Constants;
 import pages.HomePage;
 import pages.LogInPage;
 import pages.SubCategoryPage;
@@ -24,12 +25,11 @@ public class SubCategoryTest extends BaseProject{
 		LogInPage loginpage=new LogInPage(driver);
 		loginpage.enterUserNameOnUserField(usernamevalue).enterPasswordOnPasswordField(passwordvalue);
 		homepage=loginpage.clickOnSignInButton();
-		//subcategorypage.clickOnSubCategoryMoreinfo();
 		subcategorypage=homepage.clickOnSubCategoryMoreinfo();
 		subcategorypage.clickOnNewButton().selectValueToCategory().sendValueToSubCategory(subCategoryName).uploadImage().clickSave();
 		boolean alert=subcategorypage.isSaveAlertDisplayed();
 		System.out.println("alert");
-		Assert.assertTrue(alert, "Alert is not dispalyed.");
+		Assert.assertTrue(alert,Constants.MESSAGE_ASSERTION);
 	}
 	@Test
 	public void VerifyTheUserIsAbleToCreateAExistingSubCategoryAgain() throws IOException
@@ -55,7 +55,7 @@ public class SubCategoryTest extends BaseProject{
 		subcategorypage.clickOnNewButton().selectValueToCategory().sendValueToSubCategory(subCategoryName).uploadImage().clickSave();
 		boolean alertmessage=subcategorypage.isCancelAlertDisplayed();
 		//System.out.println(alertmessage);
-		Assert.assertTrue(alertmessage, "Alert is not dispalyed");
+		Assert.assertTrue(alertmessage,Constants.MESSAGE_ASSERTION);
 		//the below line will execute only if the assert is passed
 		//System.out.println("end statement");
 	}
@@ -73,7 +73,7 @@ public class SubCategoryTest extends BaseProject{
 		subcategorypage.clickOnStatusButton();
 		boolean statusalert=subcategorypage.isActiveStatusAlertDisplayed();
 		System.out.println(statusalert);
-		Assert.assertTrue(statusalert, "Alert is not dispalyed");
+		Assert.assertTrue(statusalert,Constants.MESSAGE_ASSERTION);
 	}
 
 

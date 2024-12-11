@@ -9,9 +9,9 @@
   <test thread-count="2" name="Test new">
     <classes>
     
-      <class name="testscript.LogInTest">
+      <class name="testscript.ManageProductTest">
 		<methods>
-       <include name="VerifyTheUserIsAbleToLogInUsingValidCredentials">   </include> 
+       <include name="ToCheckUserIsAbleToCreateNewProductWithMandatoryFiledsEmpty">   </include> 
 	
        </methods>
 	  </class>

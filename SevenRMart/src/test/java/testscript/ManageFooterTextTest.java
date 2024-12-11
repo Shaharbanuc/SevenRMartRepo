@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import constants.Constants;
 import pages.HomePage;
 import pages.LogInPage;
 import pages.ManageFooterTextPage;
@@ -25,7 +26,7 @@ public class ManageFooterTextTest extends BaseProject {
 		managefootertextpage = homepage.clickOnFooterLink();
 		managefootertextpage.clickOnEditButton();
 		boolean isupdatepresent = managefootertextpage.isUpdateButtonDisplayed();
-		Assert.assertTrue(isupdatepresent, "The update button is not displayed");
+		Assert.assertTrue(isupdatepresent,Constants.MESSAGE_ASSERTION);
 	}
 
 	@Test
@@ -45,6 +46,6 @@ public class ManageFooterTextTest extends BaseProject {
 		boolean isalertpresent = managefootertextpage.isSuccessAlertDisplayed();
 		// giving invalid data so expected no update,but isalertpresent value is true
 		// means success alert,so tc fails.
-		Assert.assertFalse(isalertpresent, "The email field and phone filed accept invalid data");
+		Assert.assertFalse(isalertpresent,Constants.MESSAGE_ASSERTION);
 	}
 }

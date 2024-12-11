@@ -35,8 +35,7 @@ public class Listeners implements ITestListener {
 	}
 
 	public void onTestFailure(ITestResult result) {
-		// ITestListener is an interface so we must have to use interface name before
-		// super
+		// ITestListener is an interface so we must have to use interface name before super
 		ITestListener.super.onTestFailure(result);
 		extentTest.get().log(Status.FAIL, "Test Failed");
 		extentTest.get().fail(result.getThrowable());
@@ -91,7 +90,7 @@ public class Listeners implements ITestListener {
 	public void onFinish(ITestContext context) {
 
 		ITestListener.super.onFinish(context);
-		// flush is important then only the report will generate
+		// flush will generate report
 		extent.flush();
 
 	}

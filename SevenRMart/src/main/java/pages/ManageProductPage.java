@@ -76,8 +76,7 @@ public class ManageProductPage {
 	}
 
 	public ManageProductPage clickPriceType() {
-		// not using this method ,Clicking the radio button caused change in DOM ,id of
-		// price element is changing.
+		// not using this method ,Clicking the radio button causes change in DOM ,id of price element is changing.
 		PageUtility pageutility = new PageUtility();
 		pageutility.clickOnWebElement(driver, pricetype);
 		return this;
@@ -104,7 +103,6 @@ public class ManageProductPage {
 	public ManageProductPage underLineDescriptionField() {
 		PageUtility pageutility = new PageUtility();
 		pageutility.clickOnWebElement(driver, underlinedescr);
-
 		// underlinedescr.click();
 		return this;
 	}
@@ -116,10 +114,8 @@ public class ManageProductPage {
 		return this;
 	}
 
-	public ManageProductPage addVideoLinkDescriptionField() {
-		//read
-		insertvideo.sendKeys(
-				"https://www.shutterstock.com/video/clip-3557755893-retro-projector-style-5-seconds-countdown-ten");
+	public ManageProductPage addVideoLinkDescriptionField(String videolinkpassing) {
+		insertvideo.sendKeys(videolinkpassing);
 		return this;
 	}
 
@@ -138,7 +134,7 @@ public class ManageProductPage {
 	}
 
 	public ManageProductPage clickStockRadio() {
-		// stcokradiobutton.click() not wroking so used javascript
+		//stcokradiobutton.click() not wroking so used javascript
 		PageUtility pageutility = new PageUtility();
 		pageutility.clickOnWebElement(driver, stcokradiobutton);
 		return this;
@@ -150,8 +146,7 @@ public class ManageProductPage {
 		return this;
 	}
 
-	public String simpleAlertDisplayed() {
-		//is
+	public String isSimpleAlertDisplayed() {
 		PageUtility pageutility = new PageUtility();
 		String text = pageutility.getAlertText(driver);
 		pageutility.acceptAlert(driver);

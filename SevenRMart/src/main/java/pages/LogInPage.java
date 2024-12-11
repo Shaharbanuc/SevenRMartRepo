@@ -37,23 +37,18 @@ public class LogInPage {
 		pwd.sendKeys(pwdpassing);
 		return this;
 	}
-
 	// sign in will load homepage so this method has to return homepage
 	public HomePage clickOnSignInButton() {
 		signin.click();
 		return new HomePage(driver);
 	}
-
 	public boolean isHomePageDisplayed() {
 		return dashboardvalue.isDisplayed();
 	}
-
 	public String getErrorMessage() {
 		String error = errormessage.getText();
 		return error;
-
 	}
-
 	public boolean isErrorMessageDisplayed() {
 		return errormessage.isDisplayed();
 	}

@@ -27,10 +27,9 @@ public class BaseProject {
 	// alwaysrun true is required for grouping
 	@BeforeMethod(alwaysRun = true)
 	@Parameters("browser")
-	// initialize method is different for testngxml and normal run,xml browser as
-	// requires parameter
+	// initialize method is different for testngxml and normal run,xml.browser as parameter
 	public void initializeBrowser(String browser) throws Exception {
-		// testngxml file might contain chrome or CHROME ,so we use ignorecase here
+		// testngxml file may contain chrome or CHROME ,so we use ignorecase here
 		try {
 			properties = new Properties();
 			fileinputstream = new FileInputStream(Constants.CONFIG_FILE);
@@ -46,15 +45,13 @@ public class BaseProject {
 		} else if (browser.equalsIgnoreCase("Firefox")) {
 			driver = new FirefoxDriver();
 		}
-		// if we used equals instead of equalignorecase or if the value of browser is
-		// misspelled
+		// if we used equals instead of equalignorecase or if the value of browser is misspelled
 		else {
 			throw new Exception("browser is incorrect");
 		}
 		// driver=new ChromeDriver();
 		// instead of below line used configuration file for launching the url
-		// driver.get("https://groceryapp.uniqassosiates.com/admin/login");//launching
-		// the url
+		// driver.get("https://groceryapp.uniqassosiates.com/admin/login");//launching url
 		// If the element is found before timeout, the remaining time is ignored.
 		driver.get(properties.getProperty("url"));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(WaitUtilities.ImplicitWait));
@@ -64,7 +61,7 @@ public class BaseProject {
 	 }*/
 	@AfterMethod(alwaysRun=true)
 	public void browserQuit(ITestResult iTestResult) throws IOException {
-			//checking testcase failure to get screenshot 
+			//checking is testcase failed or not to get screenshot 
 			if (iTestResult.getStatus()==ITestResult.FAILURE)
 			{ 
 			scrshot = new ScreenShotUtility(); 

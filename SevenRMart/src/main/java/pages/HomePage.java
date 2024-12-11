@@ -53,15 +53,15 @@ public class HomePage {
 		subcategorylink.click();
 		return new SubCategoryPage(driver);
 	}
-
-	public void clickRightTopImage() {
+	//following methods invoked in hometest
+	public HomePage clickRightTopImage() {
 		profilepic.click();
+		return this;
 	}
-
-	public void clickLogOut() {
+	public HomePage clickLogOut() {
 		logouticon.click();
+		return this;
 	}
-
 	public String isLogInPageDisplayed() {
 		String title = driver.getTitle();
 		return title;

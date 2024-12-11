@@ -4,6 +4,7 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import constants.Constants;
 import pages.HomePage;
 import pages.LogInPage;
 import pages.ManageNewsPage;
@@ -25,7 +26,7 @@ public class ManageNewsTest extends BaseProject {
 		managenewspage = homepage.clickOnManageNewsButton();
 		managenewspage.clickOnNewButton().eneterValueInNewsField(News).clickOnSave();
 		boolean isalert = managenewspage.isAlertdisplayed();
-		Assert.assertTrue(isalert, "no alert displayed");
+		Assert.assertTrue(isalert,Constants.MESSAGE_ASSERTION);
 	}
 
 	@Test(description = "Check user is able to delete the news from the list of news")
@@ -40,7 +41,7 @@ public class ManageNewsTest extends BaseProject {
 		managenewspage = homepage.clickOnManageNewsButton();
 		managenewspage.clickOnDelete().deleteConfirmationAlert();
 		boolean isalert = managenewspage.isAlertDisplayedAfterDelete();
-		Assert.assertTrue(isalert, "no alert displayed");
+		Assert.assertTrue(isalert,Constants.MESSAGE_ASSERTION);
 	}
 
 }

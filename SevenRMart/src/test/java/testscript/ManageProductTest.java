@@ -6,6 +6,7 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import constants.Constants;
 import pages.HomePage;
 import pages.LogInPage;
 import pages.ManageProductPage;
@@ -31,11 +32,10 @@ public class ManageProductTest extends BaseProject {
 				.enterValueOnPriceField(price).enterValueOnDescription(description).clickStockRadio().uploadImage()
 				.clickOnSave();
 		// boolean isalert=manageproductpage.alertDisplayed();
-		// Assert.assertTrue(isalert, "New product created with empty mandatory
-		// fields");
+		// Assert.assertTrue(isalert, "New product created with empty mandatory fields");
 		String alertexpected = "Please enter stock count";
-		String alertmessage = manageproductpage.simpleAlertDisplayed();
-		Assert.assertEquals(alertmessage, alertexpected, "new product created with mandatory field weight blank");
+		String alertmessage = manageproductpage.isSimpleAlertDisplayed();
+		Assert.assertEquals(alertmessage, alertexpected,Constants.MESSAGE_ASSERTION);
 	}
 
 	@Test
@@ -43,12 +43,13 @@ public class ManageProductTest extends BaseProject {
 		String usernamevalue = ExcelUtilities.readStringData(1, 0, "manage_product");
 		String passwordvalue = ExcelUtilities.readStringData(1, 1, "manage_product");
 		String description = ExcelUtilities.readStringData(1, 4, "manage_product");
+		String videolink = ExcelUtilities.readStringData(1, 5, "manage_product");
 		LogInPage loginpage = new LogInPage(driver);
 		loginpage.enterUserNameOnUserField(usernamevalue).enterPasswordOnPasswordField(passwordvalue);
 		homepage = loginpage.clickOnSignInButton();
 		manageproductpage = homepage.clickOnManageProductButton();
 		manageproductpage.clickOnNewIcon().enterValueOnDescription(description).selectDescriptionField()
-				.underLineDescriptionField().clickVideoIconDescriptionField().addVideoLinkDescriptionField()
+				.underLineDescriptionField().clickVideoIconDescriptionField().addVideoLinkDescriptionField(videolink)
 				.clickInsertVideoButton().clickOnSave();
 	}
 }

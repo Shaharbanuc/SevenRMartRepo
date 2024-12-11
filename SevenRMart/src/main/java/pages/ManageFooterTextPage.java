@@ -47,11 +47,10 @@ public class ManageFooterTextPage {
 	public ManageFooterTextPage enetrValueInPhone(String phone) {
 		phonefiled.clear();
 		phonefiled.sendKeys(phone);
-		// get the warning message
-		// String validationMessage = phonefiled.getAttribute("validationMessage"); //
-		// not an html element ,The browser dynamically generates this property at
-		// runtime,
-		// System.out.println("Validation Message: " + validationMessage);
+		/* get the warning message
+		String validationMessage = phonefiled.getAttribute("validationMessage");
+		//not an html element ,The browser dynamically generates this property at runtime,
+		System.out.println("Validation Message: " + validationMessage);*/
 		return this;
 	}
 

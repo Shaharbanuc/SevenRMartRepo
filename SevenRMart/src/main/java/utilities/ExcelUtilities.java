@@ -16,7 +16,7 @@ public class ExcelUtilities {
 	static XSSFWorkbook w;
 	static XSSFSheet sh;
 
-	// method created to read string from excel
+	// method to read string from excel
 	public static String readStringData(int row, int col, String sheet) throws IOException {
 		// System.out.println(row+" "+col);
 		String filepath = Constants.TESTDATAFILE;
@@ -29,7 +29,7 @@ public class ExcelUtilities {
 
 	}
 
-	// method created to read integer from excel
+	// method to read integer from excel
 	public static String readIntigerData(int row, int col, String sheet) throws IOException {
 		String filepath = Constants.TESTDATAFILE;
 		f = new FileInputStream(filepath);

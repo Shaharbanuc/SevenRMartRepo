@@ -7,4 +7,7 @@ public class Constants {
 	public static final String STRAWBERRY_IMAGE=System.getProperty("user.dir")+"\\src\\test\\resources\\strawberry.jpg";
 	public static final String AIRFRYER_IMAGE=System.getProperty("user.dir")+"\\src\\test\\resources\\airfryerimage.jpg";
 	public static final String CONFIG_FILE=System.getProperty("user.dir")+"\\src\\main\\resources\\config.properties";
+	public static final String MESSAGE="Home page not loaded when user entered valid credentials";
+	public static final String MESSAGE_TWO="Home page loaded when user entered invalid credentials";
+	public static final String MESSAGE_ASSERTION="Test case failed";
 }
